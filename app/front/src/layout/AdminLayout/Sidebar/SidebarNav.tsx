@@ -129,7 +129,11 @@ const SidebarNavGroup = (props: SidebarNavGroupProps) => {
 export default function SidebarNav() {
   return (
     <ul className="list-unstyled">
-      <SidebarNavItem icon={faGauge} href="/">
+
+      <SidebarNavTitle>Calculator</SidebarNavTitle>
+      <SidebarNavItem icon={faDroplet} href="valuation">Valuation</SidebarNavItem>
+      <SidebarNavItem icon={faPencil} href="risk">Risk</SidebarNavItem>
+      {/* <SidebarNavItem icon={faGauge} href="/">
         Dashboard
         <small className="ms-auto"><Badge bg="info" className="ms-auto">NEW</Badge></small>
       </SidebarNavItem>
@@ -140,11 +144,12 @@ export default function SidebarNav() {
       <SidebarNavItem icon={faCode} href="/pokemons/client">
         Sample (CSR)
         <small className="ms-auto"><Badge bg="danger" className="ms-auto">DEMO</Badge></small>
-      </SidebarNavItem>
-      <SidebarNavTitle>Theme</SidebarNavTitle>
+      </SidebarNavItem> */}
+      {/* <SidebarNavTitle>Theme</SidebarNavTitle>
       <SidebarNavItem icon={faDroplet} href="colors.html">Colors</SidebarNavItem>
-      <SidebarNavItem icon={faPencil} href="typography.html">Typography</SidebarNavItem>
-      <SidebarNavTitle>Components</SidebarNavTitle>
+      <SidebarNavItem icon={faPencil} href="typography.html">Typography</SidebarNavItem> */}
+
+      {/* <SidebarNavTitle>Components</SidebarNavTitle>
 
       <SidebarNavGroup toggleIcon={faPuzzlePiece} toggleText="Base">
         <SidebarNavItem href="base/accordion.html">Accordion</SidebarNavItem>
@@ -162,17 +167,17 @@ export default function SidebarNav() {
         <SidebarNavItem href="base/tables.html">Tables</SidebarNavItem>
         <SidebarNavItem href="base/tabs.html">Tabs</SidebarNavItem>
         <SidebarNavItem href="base/tooltips.html">Tooltips</SidebarNavItem>
-      </SidebarNavGroup>
+      </SidebarNavGroup> */}
 
-      <SidebarNavGroup toggleIcon={faLocationArrow} toggleText="Buttons">
+      {/* <SidebarNavGroup toggleIcon={faLocationArrow} toggleText="Buttons">
         <SidebarNavItem href="buttons/buttons.html">Buttons</SidebarNavItem>
         <SidebarNavItem href="buttons/button-group.html">Buttons Group</SidebarNavItem>
         <SidebarNavItem href="buttons/dropdowns.html">Dropdowns</SidebarNavItem>
-      </SidebarNavGroup>
+      </SidebarNavGroup> */}
 
-      <SidebarNavItem icon={faChartPie} href="charts.html">Charts</SidebarNavItem>
+      {/* <SidebarNavItem icon={faChartPie} href="charts.html">Charts</SidebarNavItem> */}
 
-      <SidebarNavGroup toggleIcon={faFileLines} toggleText="Forms">
+      {/* <SidebarNavGroup toggleIcon={faFileLines} toggleText="Forms">
         <SidebarNavItem href="forms/form-control.html">Form Control</SidebarNavItem>
         <SidebarNavItem href="forms/select.html">Select</SidebarNavItem>
         <SidebarNavItem href="forms/checks-radios.html">Checks and radios</SidebarNavItem>
@@ -181,37 +186,37 @@ export default function SidebarNav() {
         <SidebarNavItem href="forms/floating-labels.html">Floating labels</SidebarNavItem>
         <SidebarNavItem href="forms/layout.html">Layout</SidebarNavItem>
         <SidebarNavItem href="forms/validation.html">Validation</SidebarNavItem>
-      </SidebarNavGroup>
+      </SidebarNavGroup> */}
 
-      <SidebarNavGroup toggleIcon={faStar} toggleText="Icons">
+      {/* <SidebarNavGroup toggleIcon={faStar} toggleText="Icons">
         <SidebarNavItem href="icons/coreui-icons-free.html">CoreUI Icons</SidebarNavItem>
         <SidebarNavItem href="icons/coreui-icons-brand.html">CoreUI Icons - Brand</SidebarNavItem>
         <SidebarNavItem href="icons/coreui-icons-flag.html">CoreUI Icons - Flag</SidebarNavItem>
-      </SidebarNavGroup>
-
+      </SidebarNavGroup> */}
+      {/* 
       <SidebarNavGroup toggleIcon={faBell} toggleText="Notifications">
         <SidebarNavItem href="notifications/alerts.html">Alerts</SidebarNavItem>
         <SidebarNavItem href="notifications/badge.html">Badge</SidebarNavItem>
         <SidebarNavItem href="notifications/modals.html">Modals</SidebarNavItem>
         <SidebarNavItem href="notifications/toasts.html">Toasts</SidebarNavItem>
-      </SidebarNavGroup>
+      </SidebarNavGroup> */}
 
-      <SidebarNavItem icon={faCalculator} href="widgets.html">
+      {/* <SidebarNavItem icon={faCalculator} href="widgets.html">
         Widgets
         <small className="ms-auto"><Badge bg="info">NEW</Badge></small>
-      </SidebarNavItem>
+      </SidebarNavItem> */}
 
-      <SidebarNavTitle>Extras</SidebarNavTitle>
+      {/* <SidebarNavTitle>Extras</SidebarNavTitle> */}
 
-      <SidebarNavGroup toggleIcon={faStar} toggleText="Pages">
+      {/* <SidebarNavGroup toggleIcon={faStar} toggleText="Pages">
         <SidebarNavItem icon={faRightToBracket} href="login">Login</SidebarNavItem>
         <SidebarNavItem icon={faAddressCard} href="register">Register</SidebarNavItem>
         <SidebarNavItem icon={faBug} href="404.html">Error 404</SidebarNavItem>
         <SidebarNavItem icon={faBug} href="500.html">Error 500</SidebarNavItem>
-      </SidebarNavGroup>
+      </SidebarNavGroup> */}
 
-      <SidebarNavItem icon={faFileLines} href="docs.html">Docs</SidebarNavItem>
-      <SidebarNavItem icon={faLayerGroup} href="https://coreui.io/pro/">Try CoreUI PRO</SidebarNavItem>
+      {/* <SidebarNavItem icon={faFileLines} href="docs.html">Docs</SidebarNavItem>
+      <SidebarNavItem icon={faLayerGroup} href="https://coreui.io/pro/">Try CoreUI PRO</SidebarNavItem> */}
     </ul>
   )
 }

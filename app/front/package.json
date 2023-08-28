@@ -22,6 +22,7 @@
     "classnames": "^2.3.2",
     "cookie": "^0.5.0",
     "cookies-next": "^2.1.1",
+    "formik": "^2.4.3",
     "next": "13.2.4",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
@@ -31,7 +32,8 @@
     "react-paginate": "^8.1.4",
     "react-redux": "^8.0.5",
     "react-resize-detector": "^7.1.2",
-    "swr": "^2.1.0"
+    "swr": "^2.1.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/cookie": "^0.5.1",
