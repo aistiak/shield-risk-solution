@@ -4,7 +4,8 @@ const app = express() ;
 
 
 app.get('/',(req,res)=>{
-    return res.sendStatus(200);
+    const rand = parseInt(Math.random() * 10000) ;
+    return res.status(200).json({rand});
 })
 
 app.listen(PORT,()=>{
