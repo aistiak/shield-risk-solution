@@ -46,7 +46,24 @@ const stateOptions: { label: string; value: string }[] = [
   { label: 'New Mexico $123.66', value: '123.66' },
   { label: 'New York $165.01', value: '165.01' },
   { label: 'North Carolina $117.79', value: '117.79' },
-  // Add the rest of the options...
+  { label: 'North Dakota $118.05', value: '118.05' },
+  { label: 'Ohio $115.31', value: '115.31' },
+  { label: 'Oklahoma $110.87', value: '110.87' },
+  { label: 'Oregon $135.93', value: '135.93' },
+  { label: 'Pennsylvania $127.15', value: '127.15' },
+  { label: 'Rhode Island $151.67', value: '151.67' },
+  { label: 'South Carolina $120.89', value: '120.89' },
+  { label: 'South Dakota $115.76', value: '115.76' },
+  { label: 'Tennessee $110.07', value: '110.07' },
+  { label: 'Texas $112.98', value: '112.98' },
+  { label: 'Utah $119.57', value: '119.57' },
+  { label: 'Vermont $148.23', value: '148.23' },
+  { label: 'Virginia $137.22', value: '137.22' },
+  { label: 'Washington $127.14', value: '127.14' },
+  { label: 'West Virginia $115.01', value: '115.01' },
+  { label: 'Wisconsin $118.87', value: '118.87' },
+  { label: 'Wyoming $121.48', value: '121.48' },
+  { label: 'District of Columbia $172.34', value: '172.34' },
 ];
 
 const validationSchema = Yup.object().shape({
