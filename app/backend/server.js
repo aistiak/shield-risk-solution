@@ -3,7 +3,7 @@ const PORT = 80 ;
 const app = express() ;
 
 
-app.get('/',(req,res)=>{
+app.all('/',(req,res)=>{
     const rand = parseInt(Math.random() * 10000) ;
     return res.status(200).json({rand});
 })
