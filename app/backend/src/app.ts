@@ -1,11 +1,17 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-
-
+import swaggerUI from 'swagger-ui-express'
+import { specs } from './swagger';
+import cors from 'cors';
 function GetAppServer(PORT,routes) {
 
     const app = express();
-
+	app.use(
+        cors({
+            origin: true,
+            credentials: true 
+        })
+    );
     app.use(bodyParser()) ;
     app.use(routes) ;
 
@@ -24,6 +30,8 @@ function GetAppServer(PORT,routes) {
             next(error);
         }
     })
+
+    app.use('/api-docs',swaggerUI.serve,swaggerUI.setup(specs))
 
     return {
 

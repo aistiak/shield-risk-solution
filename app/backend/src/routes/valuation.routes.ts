@@ -13,7 +13,57 @@ ValuationRoutes.get(`${base}`, (req, res, next) => {
     return res.sendStatus(200);
 });
 
-
+/**
+ * @swagger
+ * /valuation/calculate:
+ *     post:
+ *         description: calculate valuation
+ *         requestBody:
+ *             required: true 
+ *             content:
+ *                 application/json:
+ *                    schema:
+ *                        type : object
+ *                        properties:
+ *                            state_avg_cost_per_sqft:
+ *                                type : number 
+ *                                required: true 
+ *                            year_built:
+ *                                type : number 
+ *                                required: true 
+ *                            iso_type:
+ *                                type : number 
+ *                                required: true 
+ *                            building_type:
+ *                                type : number 
+ *                                required: true 
+ *                            construction_quality:
+ *                                type : number 
+ *                                required: true 
+ *                            roof_type:
+ *                                type : number 
+ *                                required: true 
+ *                            soil_type:
+ *                                type : number 
+ *                                required: true 
+ *                            built_out_factor:
+ *                                type : number 
+ *                                required: true 
+ *                            total_area:
+ *                                type : number 
+ *                                required: true 
+ *     responses:
+ *         200:
+ *             description : valuation object
+ *             content:
+ *                 application/json:
+ *                     schema:
+ *                         type: object
+ *                         properties:
+ *                             name: string
+ *                             required : true 
+ *     
+*/
 ValuationRoutes.post(
     `${base}/calculate`,
     Validator.valuationRequestValidator,
