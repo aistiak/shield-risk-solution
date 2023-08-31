@@ -9,7 +9,8 @@ const options = {
 
         },
         servers : [
-           { url : 'http://localhost'}
+           { url : 'http://localhost'},
+           { url : 'https://risk-shield-solution.onrender.com'},
         ],
        
     },
