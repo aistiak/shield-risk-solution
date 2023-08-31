@@ -15,6 +15,16 @@ function GetAppServer(PORT,routes) {
         return res.status(200).json({ rand });
     })  
 
+    app.use((error , req,res,next)=>{
+        try {
+            const status: number = error.status || 500;
+            const message: string = error.message || 'Something went wrong';
+            res.status(status).json({ message });
+        } catch (error) {
+            next(error);
+        }
+    })
+
     return {
 
         listen() {

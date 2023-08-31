@@ -61,7 +61,7 @@ ValuationRoutes.post(
             const depreciation = (replacement_cost_value * current_age) / 100 ;
             const actual_cash_value = replacement_cost_value * (100 - depreciation);
             return res.status(200).json({
-                cost_modifier,
+                cost_modifier, 
                 replacement_cost_value,
                 actual_cash_value,
                 depreciation,
