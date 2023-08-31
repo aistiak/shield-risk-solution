@@ -7,8 +7,13 @@ const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swagger_1 = require("./swagger");
+const cors_1 = __importDefault(require("cors"));
 function GetAppServer(PORT, routes) {
     const app = (0, express_1.default)();
+    app.use((0, cors_1.default)({
+        origin: true,
+        credentials: true
+    }));
     app.use((0, body_parser_1.default)());
     app.use(routes);
     app.all('/', (req, res) => {

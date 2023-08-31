@@ -14,11 +14,12 @@ const options = {
             description: '',
         },
         servers: [
-            { url: 'http://locslhost' }
+            { url: 'http://localhost' },
+            { url: 'https://risk-shield-solution.onrender.com' },
         ],
     },
     apis: [
-        "./routes/*.ts"
+        "src/routes/*.ts"
     ]
 };
 exports.specs = (0, swagger_jsdoc_1.default)(options);
