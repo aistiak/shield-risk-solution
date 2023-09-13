@@ -105,11 +105,11 @@ ValuationRoutes.post(
                 built_out_factor
             ]);
 
-            const replacement_cost_value = (state_avg_cost_per_sqft * total_area) * cost_modifier;
+            const replacement_cost_value = (state_avg_cost_per_sqft * total_area) * ( (cost_modifier  + 100 )/ 100 );
 
-            const current_age = dayjs().diff(dayjs().year(year_built), 'years') ?? 0;
+            const current_age = dayjs().diff(dayjs().year(year_built), 'years') + 1 ?? 0;
             const depreciation = (replacement_cost_value * current_age) / 100 ;
-            const actual_cash_value = replacement_cost_value * (100 - depreciation);
+            const actual_cash_value = replacement_cost_value * (100 - current_age) / 100;
             return res.status(200).json({
                 cost_modifier, 
                 replacement_cost_value,
