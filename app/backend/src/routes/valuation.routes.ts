@@ -96,7 +96,7 @@ ValuationRoutes.post(
                 total_area, // F10
             } = body;
 
-            const cost_modifier = sum([ // F9
+            let cost_modifier = sum([ // F9
                 iso_type,
                 building_type,
                 construction_quality,
@@ -104,14 +104,19 @@ ValuationRoutes.post(
                 soil_type,
                 built_out_factor
             ]);
+            console.log({cost_modifier})
+            cost_modifier += 100
 
-            const replacement_cost_value = (state_avg_cost_per_sqft * total_area) * ( (cost_modifier  + 100 )/ 100 );
-
-            const current_age = dayjs().diff(dayjs().year(year_built), 'years')   ?? 0;
-            const depreciation = (replacement_cost_value * current_age) / 100 ;
-            const actual_cash_value = replacement_cost_value * (100 - current_age) / 100;
+            let replacement_cost_value = (state_avg_cost_per_sqft * total_area) * ( (cost_modifier  )/ 100 );
+            replacement_cost_value = Number(Math.round(replacement_cost_value))
+            // const current_age = dayjs().diff(dayjs().year(year_built), 'years')   ?? 0;
+            const current_age = (new Date()).getFullYear() - year_built ;
+            let depreciation = (replacement_cost_value * current_age) / 100 ;
+            depreciation = Number(Math.round(depreciation))
+            let actual_cash_value = replacement_cost_value * (100 - current_age) / 100;
+            actual_cash_value = Number(Math.floor(actual_cash_value))
             return res.status(200).json({
-                cost_modifier, 
+                cost_per_sqf : Number((cost_modifier * state_avg_cost_per_sqft  / 100 ).toFixed(2)),
                 replacement_cost_value,
                 actual_cash_value,
                 depreciation,
