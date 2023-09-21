@@ -4,6 +4,8 @@
 
 - **Endpoint URL:** [https://mysterious-frog-stockings.cyclic.app/risk/calculate]
 
+## Request method 
+POST
 ## Request
 
 To make a successful API request, you need to provide the following request body parameters:
