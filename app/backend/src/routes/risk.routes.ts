@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import Validator from '../valiations';
 import RiskRequestValidator from '../valiations/risk.validator';
+import dayjs from 'dayjs';
 const _ = require('lodash');
 const RiskRouter = Router();
 
@@ -101,8 +102,19 @@ RiskRouter.post(`${base}/calculate`, RiskRequestValidator, async (req, res) => {
 
     console.dir({protection_class_value})
 
-    const risk = sum + protection_class_value + 9.40 ;
+    const age = dayjs().year() - body.year_built ;
+    let year_built_value = 0 ;
 
+    if(body.year_built > 1975) {
+        year_built_value = (age / 1127) * 100  ;
+    }else  if(body.year_built < 1975 ){
+        year_built_value = (age / 1435) * 100  ;
+
+    }
+
+    let risk = year_built_value + sum + protection_class_value + 9.40 ;
+    console.dir({risk})
+    risk = Number(Math.floor(risk))
     console.dir({risk})
 
     return res.status(200).json({risk});
