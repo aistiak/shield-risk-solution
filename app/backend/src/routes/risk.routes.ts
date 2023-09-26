@@ -2,6 +2,7 @@ import { Router } from 'express';
 import Validator from '../valiations';
 import RiskRequestValidator from '../valiations/risk.validator';
 import dayjs from 'dayjs';
+import CasualRiskRequestValidator from '../valiations/casual-risk.validator';
 const _ = require('lodash');
 const RiskRouter = Router();
 
@@ -118,6 +119,18 @@ RiskRouter.post(`${base}/calculate`, RiskRequestValidator, async (req, res) => {
     console.dir({risk})
 
     return res.status(200).json({risk});
+});
+
+RiskRouter.post(`${base}/casual/calculate`, CasualRiskRequestValidator, async (req, res) => {
+
+
+    const body = req.body 
+    console.dir({body})
+  
+    console.dir({body})
+    let sum = _.sum(_.values(body));
+
+    return res.status(200).json({sum});
 });
 
 
