@@ -1,4 +1,4 @@
-# API Documentation for risk calcaulation 
+# API Documentation for casual risk calcaulation 
 
 ## Endpoint
 
