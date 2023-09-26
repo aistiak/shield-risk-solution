@@ -2,7 +2,7 @@
 
 ## Endpoint
 
-- **Endpoint URL:** [https://mysterious-frog-stockings.cyclic.app/casual/risk/calculate]
+- **Endpoint URL:** [https://mysterious-frog-stockings.cyclic.app/risk/casual/calculate]
 
 ## Request method 
 POST
