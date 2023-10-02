@@ -22,6 +22,7 @@ const riskSchema = Joi.object({
     volunteer_department: Joi.number().default(0),
     mobile_tanks: Joi.number().default(0),
     violent_crime_score: Joi.number().default(0),
+    property_crime_score : Joi.number().default(0), 
     stock: Joi.number().default(0),
     cord_and_wires: Joi.number().default(0),
     heavy_furniture: Joi.number().default(0),

@@ -33,6 +33,7 @@ To make a successful API request, you need to provide the following request body
     "volunteer_department": 0,
     "mobile_tanks": 0,
     "violent_crime_score": 0,
+    "property_crime_score": 0,
     "stock": 0,
     "cord_and_wires": 0,
     "heavy_furniture": 0,
