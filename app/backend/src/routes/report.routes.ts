@@ -75,7 +75,10 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
                 const html = response.data //  '<h1>Hello, world!</h1>';
 
                 pdf.create(html).toFile('./result.pdf', (err, data) => {
-                    if (err) return console.log(err);
+                    if (err)  {
+                        console.log(` --- error creating file ---`)
+                        return console.log(err);
+                    }
                     console.log(data);
 
                     var file = fs.createReadStream('./result.pdf');
@@ -99,6 +102,7 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
                 });
             })
             .catch(error => {
+                console.log(` --- exception occurred ---`)
                 console.log(error);
                 next(error)
             });
