@@ -81,8 +81,8 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
                     }
                     console.log(data);
 
-                    var file = fs.createReadStream('./result.pdf');
-                    var stat = fs.statSync('./result.pdf');
+                    var file = fs.createReadStream('/var/task/result.pdf');
+                    var stat = fs.statSync('/var/task/result.pdf');
                     res.setHeader('Content-Length', stat.size);
                     res.setHeader('Content-Type', 'application/pdf');
                     res.setHeader('Content-Disposition', 'attachment; filename=cost-calculator.pdf');
@@ -91,7 +91,7 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
                     res.on('finish', function () {
                         // The response has been sent completely
                         // You can now safely delete the file
-                        fs.unlink('./result.pdf', (err) => {
+                        fs.unlink('/var/task/result.pdf', (err) => {
                             if (err) {
                                 console.error('Error deleting the file:', err);
                             } else {
