@@ -90,7 +90,7 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
 
                     // return res.status(200).json({data , exists});
 
-                    exec('ls', (err, stdout, stderr) => {
+                    exec('pwd', (err, stdout, stderr) => {
                         if (err) {
                           console.error(err);
                           return res.status(500).send('An error occurred');
