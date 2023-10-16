@@ -15,6 +15,7 @@ const options = {
         },
         servers: [
             { url: 'http://localhost' },
+            { url: 'https://mysterious-frog-stockings.cyclic.app' },
             { url: 'https://risk-shield-solution.onrender.com' },
         ],
     },

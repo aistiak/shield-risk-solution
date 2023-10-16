@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const lodash_1 = require("lodash");
-const dayjs_1 = __importDefault(require("dayjs"));
 const express_1 = require("express");
 const valiations_1 = __importDefault(require("../valiations"));
 const ValuationRoutes = (0, express_1.Router)();
@@ -64,13 +63,12 @@ ValuationRoutes.get(`${base}`, (req, res, next) => {
  *
 */
 ValuationRoutes.post(`${base}/calculate`, valiations_1.default.valuationRequestValidator, function (req, res, next) {
-    var _a;
     try {
         const body = req.body;
         const { state_avg_cost_per_sqft, // F1 
         year_built, iso_type, building_type, construction_quality, roof_type, soil_type, built_out_factor, total_area, // F10
          } = body;
-        const cost_modifier = (0, lodash_1.sum)([
+        let cost_modifier = (0, lodash_1.sum)([
             iso_type,
             building_type,
             construction_quality,
@@ -78,12 +76,18 @@ ValuationRoutes.post(`${base}/calculate`, valiations_1.default.valuationRequestV
             soil_type,
             built_out_factor
         ]);
-        const replacement_cost_value = (state_avg_cost_per_sqft * total_area) * cost_modifier;
-        const current_age = (_a = (0, dayjs_1.default)().diff((0, dayjs_1.default)().year(year_built), 'years')) !== null && _a !== void 0 ? _a : 0;
-        const depreciation = (replacement_cost_value * current_age) / 100;
-        const actual_cash_value = replacement_cost_value * (100 - depreciation);
+        console.log({ cost_modifier });
+        cost_modifier += 100;
+        let replacement_cost_value = (state_avg_cost_per_sqft * total_area) * ((cost_modifier) / 100);
+        replacement_cost_value = Number(Math.round(replacement_cost_value));
+        // const current_age = dayjs().diff(dayjs().year(year_built), 'years')   ?? 0;
+        const current_age = (new Date()).getFullYear() - year_built;
+        let depreciation = (replacement_cost_value * current_age) / 100;
+        depreciation = Number(Math.round(depreciation));
+        let actual_cash_value = replacement_cost_value * (100 - current_age) / 100;
+        actual_cash_value = Number(Math.floor(actual_cash_value));
         return res.status(200).json({
-            cost_modifier,
+            cost_per_sqf: Number((cost_modifier * state_avg_cost_per_sqft / 100).toFixed(2)),
             replacement_cost_value,
             actual_cash_value,
             depreciation,
