@@ -79,26 +79,27 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
                         console.log(` --- error creating file ---`)
                         return console.log(err);
                     }
-                    console.log(data);
+                    console.log({data});
 
-                    var file = fs.createReadStream('/var/task/result.pdf');
-                    var stat = fs.statSync('/var/task/result.pdf');
-                    res.setHeader('Content-Length', stat.size);
-                    res.setHeader('Content-Type', 'application/pdf');
-                    res.setHeader('Content-Disposition', 'attachment; filename=cost-calculator.pdf');
-                    file.pipe(res);
+                    return res.status(200).json(data) ;
+                    // var file = fs.createReadStream('/var/task/result.pdf');
+                    // var stat = fs.statSync('/var/task/result.pdf');
+                    // res.setHeader('Content-Length', stat.size);
+                    // res.setHeader('Content-Type', 'application/pdf');
+                    // res.setHeader('Content-Disposition', 'attachment; filename=cost-calculator.pdf');
+                    // file.pipe(res);
 
-                    res.on('finish', function () {
-                        // The response has been sent completely
-                        // You can now safely delete the file
-                        fs.unlink('/var/task/result.pdf', (err) => {
-                            if (err) {
-                                console.error('Error deleting the file:', err);
-                            } else {
-                                console.log('File deleted successfully');
-                            }
-                        });
-                    });
+                    // res.on('finish', function () {
+                    //     // The response has been sent completely
+                    //     // You can now safely delete the file
+                    //     fs.unlink('/var/task/result.pdf', (err) => {
+                    //         if (err) {
+                    //             console.error('Error deleting the file:', err);
+                    //         } else {
+                    //             console.log('File deleted successfully');
+                    //         }
+                    //     });
+                    // });
                 });
             })
             .catch(error => {
