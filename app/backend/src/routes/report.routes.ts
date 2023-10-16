@@ -64,7 +64,7 @@ ReportRouter.post(`${base}`, async (req, res, next) => {
 })
 
 
-
+const { exec } = require('child_process');
 ReportRouter.post(`${base}-v2`, (req, res, next) => {
     try {
 
@@ -81,14 +81,23 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
                     }
                     console.log({ data });
                     let exists = false ;
-                    if (fs.existsSync('/var/task/result.pdf')) {
-                        console.log('The file exists');
-                        exists = true 
-                    } else {
-                        console.log('The file does not exist');
-                    }
+                    // if (fs.existsSync('/var/task/result.pdf')) {
+                    //     console.log('The file exists');
+                    //     exists = true 
+                    // } else {
+                    //     console.log('The file does not exist');
+                    // }
 
-                    return res.status(200).json({data , exists});
+                    // return res.status(200).json({data , exists});
+
+                    exec('ls', (err, stdout, stderr) => {
+                        if (err) {
+                          console.error(err);
+                          return res.status(500).send('An error occurred');
+                        }
+                        res.send(stdout);
+                      });
+
                     // var file = fs.createReadStream('/var/task/result.pdf');
                     // var stat = fs.statSync('/var/task/result.pdf');
                     // res.setHeader('Content-Length', stat.size);
