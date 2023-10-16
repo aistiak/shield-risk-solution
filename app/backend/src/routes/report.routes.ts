@@ -74,7 +74,7 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
                 console.log(response.data);
                 const html = response.data //  '<h1>Hello, world!</h1>';
 
-                pdf.create(html).toStream('./result.pdf', (err, stream) => {
+                pdf.create(html).toStream((err, stream) => {
                     if (err) return console.log(err);
                     res.setHeader('Content-Type', 'application/pdf');
                     stream.pipe(res);
