@@ -75,13 +75,20 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
                 const html = response.data //  '<h1>Hello, world!</h1>';
 
                 pdf.create(html).toFile('./result.pdf', (err, data) => {
-                    if (err)  {
+                    if (err) {
                         console.log(` --- error creating file ---`)
                         return console.log(err);
                     }
-                    console.log({data});
+                    console.log({ data });
+                    let exists = false ;
+                    if (fs.existsSync('/var/task/result.pdf')) {
+                        console.log('The file exists');
+                        exists = true 
+                    } else {
+                        console.log('The file does not exist');
+                    }
 
-                    return res.status(200).json(data) ;
+                    return res.status(200).json({data , exists});
                     // var file = fs.createReadStream('/var/task/result.pdf');
                     // var stat = fs.statSync('/var/task/result.pdf');
                     // res.setHeader('Content-Length', stat.size);
