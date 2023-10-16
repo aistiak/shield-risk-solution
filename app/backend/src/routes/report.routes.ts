@@ -100,6 +100,7 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
             })
             .catch(error => {
                 console.log(error);
+                next(error)
             });
 
     } catch (e) {
