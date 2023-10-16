@@ -74,13 +74,10 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
                 console.log(response.data);
                 const html = response.data //  '<h1>Hello, world!</h1>';
 
-                pdf.create(html).toFile('./result.pdf', (err, data) => {
-                    if (err) {
-                        console.log(` --- error creating file ---`)
-                        return console.log(err);
-                    }
-                    console.log({ data });
-                    let exists = false ;
+                pdf.create(html).toStream('./result.pdf', (err, stream) => {
+                    if (err) return console.log(err);
+                    res.setHeader('Content-Type', 'application/pdf');
+                    stream.pipe(res);
                     // if (fs.existsSync('/var/task/result.pdf')) {
                     //     console.log('The file exists');
                     //     exists = true 
@@ -90,13 +87,13 @@ ReportRouter.post(`${base}-v2`, (req, res, next) => {
 
                     // return res.status(200).json({data , exists});
 
-                    exec('pwd', (err, stdout, stderr) => {
-                        if (err) {
-                          console.error(err);
-                          return res.status(500).send('An error occurred');
-                        }
-                        res.send(stdout);
-                      });
+                    // exec('pwd', (err, stdout, stderr) => {
+                    //     if (err) {
+                    //       console.error(err);
+                    //       return res.status(500).send('An error occurred');
+                    //     }
+                    //     res.send(stdout);
+                    //   });
 
                     // var file = fs.createReadStream('/var/task/result.pdf');
                     // var stat = fs.statSync('/var/task/result.pdf');
