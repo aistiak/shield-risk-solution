@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 
 const ReportRouter = Router();
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 const pdf = require('html-pdf');
 const axios = require('axios');
@@ -14,7 +14,9 @@ ReportRouter.post(`${base}`, async (req, res, next) => {
     try {
 
 
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            executablePath: '/usr/bin/google-chrome',
+        });
 
         // Create a new page
         const page = await browser.newPage();
