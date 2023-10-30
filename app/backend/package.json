@@ -14,7 +14,6 @@
     "joi": "^17.10.0",
     "lodash": "^4.17.21",
     "nodemon": "^3.0.1",
-    "puppeteer": "^21.3.8",
     "puppeteer-core": "^21.4.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
