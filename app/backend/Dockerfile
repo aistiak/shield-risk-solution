@@ -17,9 +17,9 @@ RUN yarn install
 
 # Bundle app source
 COPY . .
-
+RUN yarn build 
 # Expose the port that the app listens on
 EXPOSE 8080
 
 # Run the app with Puppeteer
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]
