@@ -16,6 +16,7 @@ ReportRouter.post(`${base}`, async (req, res, next) => {
 
         const browser = await puppeteer.launch({
             executablePath: '/usr/bin/google-chrome',
+            args: ['--no-sandbox']
         });
 
         // Create a new page
