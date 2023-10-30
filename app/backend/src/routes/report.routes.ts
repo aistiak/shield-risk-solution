@@ -10,20 +10,21 @@ const axios = require('axios');
 const base = '/report';
 
 
-ReportRouter.post(`${base}`, async (req, res, next) => {
+ReportRouter.get(`${base}`, async (req, res, next) => {
     try {
 
-
+        const website_url = decodeURIComponent(req.query.req_page);
+        console.log({website_url})
         const browser = await puppeteer.launch({
             executablePath: '/usr/bin/google-chrome',
             args: ['--no-sandbox']
         });
-
+      
         // Create a new page
         const page = await browser.newPage();
 
         // Website URL to export as pdf
-        const website_url = req.body.req_page;
+      
         await page.goto(website_url, { waitUntil: 'networkidle0', timeout: 0 });
         await page.emulateMediaType('screen');
         const pdf = await page.pdf({
