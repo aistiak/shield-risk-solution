@@ -61,6 +61,7 @@ ReportRouter.post(`${base}`, async (req, res, next) => {
         });
 
     } catch (e) {
+        console.dir(e)
         next(e)
     }
 })
