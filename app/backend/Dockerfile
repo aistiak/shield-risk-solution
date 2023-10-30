@@ -8,6 +8,7 @@ WORKDIR /app
 RUN apt-get update && \
     apt-get install -yq \
     gconf-service \
+    libnss3 \
     libasound2 \
     libatk1.0-0 \
     libc6 \
