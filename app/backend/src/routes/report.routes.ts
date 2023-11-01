@@ -28,13 +28,13 @@ ReportRouter.get(`${base}`, async (req, res, next) => {
         await page.goto(website_url, { waitUntil: 'networkidle0', timeout: 0 });
         await page.emulateMediaType('screen');
         const pdf = await page.pdf({
-            headerTemplate: '<span style="font-size: 30px; width: 200px; height: 200px; background-color: black; color: white; margin: 20px;">Header</span>',
-            fofooterTemplate: "<div><div class='pageNumber'></div> <div>/</div><div class='totalPages'></div></div>",
+            //headerTemplate: '<span style="font-size: 30px; width: 200px; height: 200px; background-color: black; color: white; margin: 20px;">Header</span>',
+            //fofooterTemplate: "<div><div class='pageNumber'></div> <div>/</div><div class='totalPages'></div></div>",
 
-            displayHeaderFooter: true,
+            //displayHeaderFooter: true,
 
             path: 'result.pdf',
-            margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
+            margin: { top: '10px', right: '10px', bottom: '10px', left: '10px' },
             printBackground: true,
             format: 'A4',
         });
