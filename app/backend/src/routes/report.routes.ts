@@ -12,7 +12,7 @@ const base = '/report';
 
 ReportRouter.get(`${base}`, async (req, res, next) => {
     try {
-
+        let fileName = req.query?.file_name ? req.query.file_name : 'file.pdf';
         const website_url = decodeURIComponent(req.query.req_page);
         console.log({website_url})
         const browser = await puppeteer.launch({
@@ -47,7 +47,7 @@ ReportRouter.get(`${base}`, async (req, res, next) => {
         var stat = fs.statSync('./result.pdf');
         res.setHeader('Content-Length', stat.size);
         res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', 'attachment; filename=cost-calculator.pdf');
+        res.setHeader('Content-Disposition', `attachment; filename=${fileName}`);
         file.pipe(res);
 
         res.on('finish', function () {
