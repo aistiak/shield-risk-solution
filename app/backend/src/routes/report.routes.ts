@@ -16,7 +16,7 @@ ReportRouter.get(`${base}`, async (req, res, next) => {
         const website_url = decodeURIComponent(req.query.req_page);
         console.log({website_url})
         const browser = await puppeteer.launch({
-            executablePath: '/usr/bin/google-chrome',
+            executablePath: '/usr/bin/chromium-browser',
             args: ['--no-sandbox']
         });
       
